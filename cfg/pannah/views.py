@@ -30,7 +30,7 @@ def home(request):
 	return render(request, 'pannah/homepage.html', context)
 
 def schemes(request):
-	return HttpResponse("Customer")
+	return render(request, 'pannah/schemes.html', )
 
 @unauthenticated_user
 def registerPage(request):
@@ -71,7 +71,9 @@ def resetPassword(request):
 	return HttpResponse('Reset')
 
 def membership(request):
-	return HttpResponse('membership form here')
+	context={}
+	return render(request, 'pannah/membership.html')
+
 
 
 
