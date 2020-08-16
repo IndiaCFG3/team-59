@@ -33,7 +33,7 @@ def registerPage(request):
 		
 
 	context = {'form':form}
-	return render(request, 'accounts/register.html', context)
+	return render(request, 'pannah/register.html', context)
 
 @unauthenticated_user
 def loginPage(request):
@@ -51,7 +51,7 @@ def loginPage(request):
 			messages.info(request, 'Username OR password is incorrect')
 
 	context = {}
-	return render(request, 'accounts/login.html', context)
+	return render(request, 'pannah/login.html', context)
 
 def logoutUser(request):
 	logout(request)
@@ -73,7 +73,7 @@ def home(request):
 	'total_orders':total_orders,'delivered':delivered,
 	'pending':pending }
 
-	return render(request, 'accounts/dashboard.html', context)
+	return render(request, 'pannah/dashboard.html', context)
 
 
 # Create your views here.
