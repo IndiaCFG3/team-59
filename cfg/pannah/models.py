@@ -47,7 +47,7 @@ class Scheme(models.Model):
     income_category= models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, choices=GENDER_TYPE, null=True)
     state = models.CharField(max_length=200, null=True)
-    customer= models.ForeignKey(Customer, on_delete=models.CASCADE) 
+    customer= models.ManyToManyField(Customer)
 	#any other parameters
     def __str__(self):
         return self.name

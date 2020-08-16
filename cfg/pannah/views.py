@@ -12,19 +12,19 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 from .models import *
-from .forms import OrderForm, CreateUserForm, CustomerForm
-from .filters import OrderFilter
+from .forms import CreateUserForm, CustomerForm
+# from .filters import OrderFilter
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 @unauthenticated_user
 def registerPage(request):
 
-	form = CreateUserForm()
+	form = Customerform()
 	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
+		form = Customerform(request.POST)
 		if form.is_valid():
 			user = form.save()
-			username = form.cleaned_data.get('username')
+			username = form.cleaned_data.get('name')
 
 
 			messages.success(request, 'Account was created for ' + username)
@@ -65,5 +65,9 @@ def home(request):
 
 	return render(request, 'pannah/dashboard.html', context)
 
+
+def scheme(request):
+	context = {}
+	return render (request, 'pannah/schemes.html')
 
 # Create your views here.
