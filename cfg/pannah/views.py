@@ -52,7 +52,7 @@ def registerPage(request):
 
 	context = {'form':form}
 	#return HttpResponse("Register")
-	return render(request, 'pannah/register.html', context)
+	return render(request, 'pannah/register.html')
 
 @unauthenticated_user
 def loginPage(request):
@@ -73,7 +73,7 @@ def loginPage(request):
 	return render(request, 'pannah/login.html', context)
 
 def resetPassword(request):
-	return HttpResponse('Reset')
+	return render(request, 'pannah/PasswordRecovery.html')
 
 def membership(request):
 	return render(request, 'pannah/membership.html')
