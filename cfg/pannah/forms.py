@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 from django import forms
 
 from .models import *
-class Customerform(ModelForm):
+class CustomerForm(ModelForm):
 	class meta:
 		model=Customer
 		fields='__all__'
 class CreateUserForm(UserCreationForm):
 	class Meta:
 		model = User
-		fields = ['username', 'email', 'password1', 'password2']
+		fields = '__all__'

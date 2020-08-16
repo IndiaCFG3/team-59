@@ -12,22 +12,17 @@
 
   <title>PANNAH</title>
 
-  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-
-  <!-- Custom fonts for this template -->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel='stylesheet' type='text/css'>
 
-  <!-- Custom styles for this template -->
   <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
-
-  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">PANNAH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +31,16 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="schemes.html">Schemes</a>
+
+      <a class="nav-item nav-link" href="{% url 'schemes' %}">Schemes</a>
+       <a class="nav-item nav-link" href="{% url 'logout' %}">logout</a>
+      
+
     </div>
   </div>
 </nav>
       
 
-  <!-- Page Header -->
   <header class="masthead" style="background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fdictionaryblog.cambridge.org%2F2017%2F05%2F31%2Fcan-i-give-you-a-hand-words-and-phrases-for-helping-others%2F&psig=AOvVaw3c7TccKVpeW5smcecROA4N&ust=1597655139690000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPC9zquvn-sCFQAAAAAdAAAAABAD')">
     <div class="overlay"></div>
     <div class="container">
@@ -57,7 +55,6 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">

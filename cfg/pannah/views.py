@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 
 # Create your views here.
 from .models import *
@@ -29,8 +29,13 @@ def home(request):
 	'total_schemes':total_schemes}
 	return render(request, 'pannah/homepage.html', context)
 
+@login_required(login_url='login')
 def schemes(request):
-	return render(request, 'pannah/schemes.html', )
+	schemes = Scheme.objects.all()
+	total_schemes = schemes.count()
+
+	context = {'schemes':schemes, 'total_schemes':total_schemes}
+	return render(request, 'pannah/schemes.html', context)
 
 @unauthenticated_user
 def registerPage(request):
@@ -40,7 +45,7 @@ def registerPage(request):
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			username = form.cleaned_data.get('username')
+			username = form.cleaned_data.get('name')
 			messages.success(request, 'Account was created for ' + username)
 			return redirect('login')
 		
@@ -71,11 +76,11 @@ def resetPassword(request):
 	return render(request, 'pannah/PasswordRecovery.html')
 
 def membership(request):
-	context={}
 	return render(request, 'pannah/membership.html')
-
-
-
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("home")
 
 
 # Create your views here.
