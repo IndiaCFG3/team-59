@@ -4,11 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Customer(models.Model):
-    INCOME_GROUP = (
+    INCOME_GROUP =(
 		('belowAverage', 'belowAverage'),
 		('average','average'),
 		('aboveAverage', 'aboveAverage')
 	)
+
     GENDER_TYPE = (
         ('Male','Male'),
         ('Female', 'Female'),
