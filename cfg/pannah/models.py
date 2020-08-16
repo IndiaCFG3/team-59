@@ -40,5 +40,3 @@ class Scheme(models.Model):
 	#any other parameters
 	def __str__(self):
 		return self.name
-
-
