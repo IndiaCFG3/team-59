@@ -16,23 +16,28 @@ from .forms import *
 from .filters import *
 from .decorators import *
 
+def home(request):
+	context={}
+	return render(request, 'pannah/homepage.html', context)
+
+def schemes(request):
+	return HttpResponse("Customer")
+
 @unauthenticated_user
 def registerPage(request):
 
-	form = Customerform()
+	form = CreateUserForm()
 	if request.method == 'POST':
-		form = Customerform(request.POST)
+		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			username = form.cleaned_data.get('name')
-
-
+			username = form.cleaned_data.get('username')
 			messages.success(request, 'Account was created for ' + username)
-
 			return redirect('login')
 		
 
 	context = {'form':form}
+	#return HttpResponse("Register")
 	return render(request, 'pannah/register.html', context)
 
 @unauthenticated_user
@@ -53,29 +58,9 @@ def loginPage(request):
 	context = {}
 	return render(request, 'pannah/login.html', context)
 
-def logoutUser(request):
-	logout(request)
-	return redirect('login')
+def resetPassword(request):
+	return HttpResponse('Reset')
 
-@login_required(login_url='login')
-@admin_only
-def home(request):
-	'''orders = Order.objects.all()
-	customers = Customer.objects.all()
-
-	total_customers = customers.count()
-
-	total_orders = orders.count()
-	delivered = orders.filter(status='Delivered').count()
-	pending = orders.filter(status='Pending').count()
-
-	context = {'orders':orders, 'customers':customers,
-	'total_orders':total_orders,'delivered':delivered,
-	'pending':pending }'''
-	context={}
-	return render(request, 'pannah/dashboard.html', context)
-def schemes(request):
-	return HttpResponse("Customer")
 
 
 
