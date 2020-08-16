@@ -16,8 +16,17 @@ from .forms import *
 from .filters import *
 from .decorators import *
 
+@login_required(login_url='login')
 def home(request):
-	context={}
+	schemes = Scheme.objects.all()
+	customers = Customer.objects.all()
+
+	total_customers = customers.count()
+
+	total_schemes = schemes.count()
+
+	context = {'schemes':schemes, 'customers':customers,
+	'total_schemes':total_schemes}
 	return render(request, 'pannah/homepage.html', context)
 
 def schemes(request):
