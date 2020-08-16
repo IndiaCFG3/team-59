@@ -7,7 +7,9 @@ class Customer(models.Model):
     INCOME_GROUP =(
 		('belowAverage', 'belowAverage'),
 		('average','average'),
-		('aboveAverage', 'aboveAverage'))
+		('aboveAverage', 'aboveAverage')
+	)
+
     GENDER_TYPE = (
         ('Male','Male'),
         ('Female', 'Female'),
@@ -23,9 +25,9 @@ class Customer(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER_TYPE)
     def __str__(self):
-    	return self.name
+        return self.name
 
-class volunteer(models.Model):
+class Volunteer(models.Model):
 	name = models.CharField(max_length=200, null=True)
 	phone = models.CharField(max_length=200, null=True)
 	email = models.CharField(max_length=200, null=True)
@@ -36,16 +38,16 @@ class volunteer(models.Model):
 		return self.name
 
 class Scheme(models.Model):
-	GENDER_TYPE = (
+    GENDER_TYPE = (
         ('Male','Male'),
         ('Female', 'Female'),
         ('LGBTQ','LGBTQ')
     )
-	name = models.CharField(max_length=200, null=True)
-	income_category= models.CharField(max_length=200, null=True)
-	gender = models.CharField(max_length=200, choices=GENDER_TYPE, null=True)
-	state = models.CharField(max_length=200, null=True)
-	customer= models.ForeignKey(Customer, on_delete=models.CASCADE) 
+    name = models.CharField(max_length=200, null=True)
+    income_category= models.CharField(max_length=200, null=True)
+    gender = models.CharField(max_length=200, choices=GENDER_TYPE, null=True)
+    state = models.CharField(max_length=200, null=True)
+    customer= models.ForeignKey(Customer, on_delete=models.CASCADE) 
 	#any other parameters
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
