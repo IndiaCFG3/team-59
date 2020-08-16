@@ -20,3 +20,13 @@ class Customer(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class Scheme(models.Model):
+	name = models.CharField(max_length=200, null=True)
+	income_category= models.CharField(max_length=200, null=True)
+	gender = models.CharField(max_length=200, choices=GENDER, null=True)
+	state = models.CharField(max_length=200, null=True)
+
+	#any other parameters
+	def __str__(self):
+		return self.name
