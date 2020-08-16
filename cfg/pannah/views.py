@@ -12,9 +12,9 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 from .models import *
-from .forms import OrderForm, CreateUserForm, CustomerForm
-from .filters import OrderFilter
-from .decorators import unauthenticated_user, allowed_users, admin_only
+from .forms import *
+from .filters import *
+from .decorators import *
 
 @unauthenticated_user
 def registerPage(request):
@@ -74,6 +74,9 @@ def home(request):
 	'pending':pending }'''
 	context={}
 	return render(request, 'pannah/dashboard.html', context)
+def schemes(request):
+	return HttpResponse("Customer")
+
 
 
 # Create your views here.

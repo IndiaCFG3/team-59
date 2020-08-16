@@ -19,10 +19,6 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pannah.urls'))
-<<<<<<< HEAD
-]
-=======
- ]
->>>>>>> c230eb1bcf2e60299834a328c4fe0f88fbd0a5ba
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
