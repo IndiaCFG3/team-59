@@ -19,12 +19,12 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 @unauthenticated_user
 def registerPage(request):
 
-	form = CreateUserForm()
+	form = Customerform()
 	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
+		form = Customerform(request.POST)
 		if form.is_valid():
 			user = form.save()
-			username = form.cleaned_data.get('username')
+			username = form.cleaned_data.get('name')
 
 
 			messages.success(request, 'Account was created for ' + username)
@@ -60,7 +60,7 @@ def logoutUser(request):
 @login_required(login_url='login')
 @admin_only
 def home(request):
-	orders = Order.objects.all()
+	'''orders = Order.objects.all()
 	customers = Customer.objects.all()
 
 	total_customers = customers.count()
@@ -71,8 +71,8 @@ def home(request):
 
 	context = {'orders':orders, 'customers':customers,
 	'total_orders':total_orders,'delivered':delivered,
-	'pending':pending }
-
+	'pending':pending }'''
+	context={}
 	return render(request, 'pannah/dashboard.html', context)
 
 
