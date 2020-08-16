@@ -76,7 +76,6 @@ def resetPassword(request):
 	return HttpResponse('Reset')
 
 def membership(request):
-	context={}
 	return render(request, 'pannah/membership.html')
 
 
