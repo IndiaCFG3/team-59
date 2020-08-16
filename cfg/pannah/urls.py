@@ -8,5 +8,6 @@ path('schemes/', views.schemes, name="schemes"),
 path('register/', views.registerPage, name="register"),
 path('login/', views.loginPage, name="login"),  
 path('reset_password/', views.resetPassword, name="reset_password"),
-path('membership/', views.membership, name="membership")
+path('membership/', views.membership, name="membership"),
+path('logout/', views.logout_request, name="logout")
 ]
