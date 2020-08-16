@@ -78,7 +78,10 @@ def resetPassword(request):
 def membership(request):
 	context={}
 	return render(request, 'pannah/membership.html')
-
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("home")
 
 
 # Create your views here.
