@@ -28,18 +28,20 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
 
-      <a class="nav-item nav-link" href="schemes.html">Schemes</a>
-      
+      <a class="nav-item nav-link" href="{% url 'schemes' %}">Schemes</a>
+      <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
     </div>
   </div>
 </nav>
- 
+ <br>
+ <br><br>
+
 <div class="container-fluid">
 <div class = "row">
-    <div class = "col-md-4 ml-3">
+    <div class = "col-md">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             <div class="input-group-text">
@@ -49,7 +51,7 @@
             <p>AADHAR</p>
         </div>
     </div>
-    <div class = "col-md-4 ml-3">    
+    <div class = "col-md">    
         <div class="input-group mb-3">
             <div class="input-group-prepend">
             <div class="input-group-text">
@@ -58,9 +60,12 @@
             </div>
             <p>PAN</p>
         </div>
+        <br><br>
+        <a class="btn btn-sm btn-info" href="">PAY</a>
+<a class="btn btn-sm btn-warning" href="{% url 'home' %}">CANCEL</a>
     </div>
 
-<div class = "col-md-4 ml-3">    
+<div class = "col-md-4">    
     <div class="input-group mb-3">
         <div class="input-group-prepend">
         <div class="input-group-text">
@@ -71,9 +76,6 @@
     </div>
 </div>
 </div>
-
-<a class="btn btn-sm btn-info" href="">PAY</a>
-<a class="btn btn-sm btn-warning" href="{% url 'home' %}">CANCEL</a>
 </div>
 <footer>
     <div class="container">
