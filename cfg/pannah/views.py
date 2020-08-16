@@ -70,6 +70,9 @@ def loginPage(request):
 def resetPassword(request):
 	return HttpResponse('Reset')
 
+def membership(request):
+	return HttpResponse('membership form here')
+
 
 
 
