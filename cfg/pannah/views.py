@@ -75,5 +75,10 @@ def loginPage(request):
 def resetPassword(request):
 	return HttpResponse('Reset')
 
+def membership(request):
+	context={}
+	return render(request, 'pannah/membership.html')
+
+
 
 # Create your views here.
