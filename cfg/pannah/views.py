@@ -29,8 +29,13 @@ def home(request):
 	'total_schemes':total_schemes}
 	return render(request, 'pannah/homepage.html', context)
 
+@login_required(login_url='login')
 def schemes(request):
-	return HttpResponse("Customer")
+	schemes = Scheme.objects.all()
+	total_schemes = schemes.count()
+
+	context = {'schemes':schemes, 'total_schemes':total_schemes}
+	return render(request, 'pannah/schemes.html', context)
 
 @unauthenticated_user
 def registerPage(request):
@@ -70,11 +75,5 @@ def loginPage(request):
 def resetPassword(request):
 	return HttpResponse('Reset')
 
-
-
-
-def scheme(request):
-	context = {}
-	return render (request, 'pannah/schemes.html')
 
 # Create your views here.
